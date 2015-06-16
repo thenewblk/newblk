@@ -16,7 +16,7 @@ var userSchema = mongoose.Schema({
         token        : String,
         email        : String,
         name         : String
-    },
+    }, 
     twitter          : {
         id           : String,
         token        : String,
@@ -35,15 +35,6 @@ var userSchema = mongoose.Schema({
         displayName     : String,
         name         : String
     },
-    // things: [ 
-    //     { 
-    //         post: { type: String, ref: 'Post' } ,
-    //         instagram: { type: String, ref: 'Instagram' },
-    //         column: { type: String, ref: 'Column' },
-    //         position: Number 
-    //     }
-    // ]
-
 });
 
 // generating a hash

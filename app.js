@@ -39,7 +39,6 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash());
 
-
 require('./routes/tag')(app, passport);
 require('./routes/index')(app, passport);
 
@@ -72,9 +71,7 @@ app.use(function(err, req, res, next) {
         message: err.message,
         error: {}
     });
-}); 
-
-
+});
 
 module.exports = app;
 

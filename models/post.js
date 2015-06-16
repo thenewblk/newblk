@@ -1,7 +1,7 @@
 var mongoose = require( 'mongoose' );
 var moment = require('moment');
 
-var textSchema = mongoose.Schema({
+var postSchema = mongoose.Schema({
     content    : String,
     updated_date : String,
     updated_at : String,
@@ -12,10 +12,10 @@ var textSchema = mongoose.Schema({
     project: { type: String, ref: 'Project' } ,
 });
 
-textSchema.pre('save', function (next) {
+postSchema.pre('save', function (next) {
   this.updated_at = moment().format("M.D.YYYY");
   this.updated_date = moment().format();
   next();
 });
- 
-module.exports = mongoose.model('Text', textSchema);
+
+module.exports = mongoose.model('Post', postSchema);

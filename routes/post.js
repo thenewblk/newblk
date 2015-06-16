@@ -1,8 +1,8 @@
-var Text = require('../models/text');
+var Post = require('../models/post');
 
 module.exports = function(app) {
 	// Add New text
-	app.post('/api/text/new', function(req, res) {
+	app.post('/api/post/new', function(req, res) {
 		var content = req.body.content;
 		var tags = req.body.tags;
 		var client = req.body.client;
@@ -17,7 +17,7 @@ module.exports = function(app) {
 	});
 
 	// Display texts
-	app.get('/api/text/', function(req, res) {
+	app.get('/api/post/', function(req, res) {
 		Text
 			.find({})
 			.exec( function (err, texts) {
@@ -27,7 +27,7 @@ module.exports = function(app) {
 	});
 
 	// Display text
-	app.get('/api/text/:id', function(req, res) {
+	app.get('/api/post/:id', function(req, res) {
 		Text
 			.findOne({ _id: req.params.id })
 			.exec( function (err, text) {
@@ -37,7 +37,7 @@ module.exports = function(app) {
 	});
 
 	// Delete text
-	app.delete('/api/text/:id/delete', function(req, res) {
+	app.delete('/api/post/:id/delete', function(req, res) {
 		Text
 			.findOne({ _id: req.params.id })
 			.remove( function (err, text) {
@@ -47,7 +47,7 @@ module.exports = function(app) {
 	});
 
 	// Display Edit text Form
-	app.get('/api/text/:id/edit', function(req, res) {
+	app.get('/api/post/:id/edit', function(req, res) {
 			text
 				.findOne({ _id: req.params.id })
 				.exec( function (err, text) {
@@ -57,7 +57,7 @@ module.exports = function(app) {
 	});
 
 	// Edit text
-	app.post('/api/text/:id/edit', function(req, res) {
+	app.post('/api/post/:id/edit', function(req, res) {
 		tmp_text = {};
 		tmp_text.content = req.body.content;
 		tmp_text.tags = req.body.tags;
